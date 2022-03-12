@@ -75,13 +75,13 @@
     {
       # Current Macbook Pro M1 from Ruangguru.com
       darwinConfigurations = rec {
-        RG = darwinSystem {
+        hanan=darwinSystem {
           system = "aarch64-darwin";
           modules = nixDarwinCommonModules ++ [
             {
-              users.primaryUser = "r17";
-              networking.computerName = "RG";
-              networking.hostName = "RG";
+              users.primaryUser = "hanan";
+              networking.computerName = "hanan";
+              networking.hostName = "hanan";
               networking.knownNetworkServices = [
                 "Wi-Fi"
                 "USB 10/100/1000 LAN"

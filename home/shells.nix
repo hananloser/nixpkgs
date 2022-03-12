@@ -101,6 +101,7 @@
     gfa = "git fetch --all";
     grc = "git rebase --continue";
     rm = "rm -i";
+    vim = "nvim";
   };
 
   programs.fish.shellInit = ''
