@@ -80,10 +80,8 @@
     cc = "zi";
     # Others
     p = "ping";
-    l = "ls -l";
-    la = "ls -a";
-    lla = "ls -la";
-    lt = "ls --tree";
+    ls = "colorls -a";
+    lt = "colorls --tree 1";
     cat = "${bat}/bin/bat";
     du = "${du-dust}/bin/dust";
     pullhead = "git pull origin (git rev-parse --abbrev-ref HEAD)";
@@ -99,6 +97,7 @@
     gld = "git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\"";
     gls = "gl --show-signature";
     gfa = "git fetch --all";
+    gs = "git status"; 
     grc = "git rebase --continue";
     rm = "rm -i";
     vim = "nvim";

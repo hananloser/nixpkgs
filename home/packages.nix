@@ -87,6 +87,7 @@
     comby
     python3
     pkg-config
+    opam
 
     ################################## 
     # Shell Integrations
