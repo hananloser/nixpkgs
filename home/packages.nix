@@ -51,6 +51,7 @@
     gh # github cli
     nodePackages.svg-term-cli
     nodePackages."@napi-rs/cli"
+    nodePackages.sharp
     nodePackages.mrm
 
     ################################## 
@@ -88,7 +89,8 @@
     comby
     python3
     pkg-config
-    opam
+    exa
+    vips
 
     ################################## 
     # Shell Integrations

@@ -1,10 +1,45 @@
 { config, pkgs, lib, ... }:
 
-{
-  # Fish Shell (Default shell)
-  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.fish.enable
-  programs.fish.enable = true;
+let alias = {
+  # Nix related
+  drb = "darwin-rebuild build --flake ~/.config/nixpkgs/";
+  drs = "darwin-rebuild switch --flake ~/.config/nixpkgs/";
+  # is equivalent to: nix build --recreate-lock-file
+  flakeup = "nix flake update ~/.config/nixpkgs/";
+  nb = "nix build";
+  nd = "nix develop";
+  nf = "nix flake";
+  nr = "nix run";
+  ns = "nix search";
 
+  # Shell related
+  cc = "zi";
+  # Others
+  p = "ping";
+  ls = "exa -a";
+  cat = "${pkgs.bat}/bin/bat";
+  du = "${pkgs.du-dust}/bin/dust";
+  pullhead = "git pull origin (git rev-parse --abbrev-ref HEAD)";
+  plh = "pullhead";
+  pushhead = "git push origin (git rev-parse --abbrev-ref HEAD)";
+  psh = "pushhead";
+  gi = "gitignore";
+  g = "git";
+  gtemp = "git commit -m \"temp\" --no-verify";
+  gf = "git flow";
+  gc = "git commit";
+  gl = "git log --graph --oneline --all";
+  gll = "git log --oneline --decorate --all --graph --stat";
+  gld = "git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\"";
+  gls = "gl --show-signature";
+  gfa = "git fetch --all";
+  gs = "git status";
+  grc = "git rebase --continue";
+  rm = "rm -i";
+  vim = "nvim";
+};
+in
+{
   # Fish plugins 
   # See: 
   # https://github.com/NixOS/nixpkgs/tree/90e20fc4559d57d33c302a6a1dce545b5b2a2a22/pkgs/shells/fish/plugins 
@@ -20,6 +55,16 @@
     # https://github.com/PatrickF1/fzf.fish
   ];
 
+  # zsh alias : register alias command in fish
+  programs.zsh.enable = true;
+  programs.zsh.shellAliases = alias;
+
+  # Fish Shell (Default shell)
+  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.fish.enable
+  programs.fish.enable = true;
+
+  # Fish alias : register alias command in fish
+  programs.fish.shellAliases = alias;
 
   programs.fish.plugins = [
     {
@@ -62,45 +107,6 @@
     grep = "rg";
   };
 
-  # Fish alias : register alias command in fish
-  programs.fish.shellAliases = with pkgs; {
-    # Nix related
-    drb = "darwin-rebuild build --flake ~/.config/nixpkgs/";
-    drs = "darwin-rebuild switch --flake ~/.config/nixpkgs/";
-    # is equivalent to: nix build --recreate-lock-file
-    flakeup = "nix flake update ~/.config/nixpkgs/";
-    nb = "nix build";
-    nd = "nix develop";
-    nf = "nix flake";
-    nr = "nix run";
-    ns = "nix search";
-
-    # Shell related
-    cc = "zi";
-    # Others
-    p = "ping";
-    ls = "exa -a";
-    cat = "${bat}/bin/bat";
-    du = "${du-dust}/bin/dust";
-    pullhead = "git pull origin (git rev-parse --abbrev-ref HEAD)";
-    plh = "pullhead";
-    pushhead = "git push origin (git rev-parse --abbrev-ref HEAD)";
-    psh = "pushhead";
-    gi = "gitignore";
-    g = "git";
-    gtemp = "git commit -m \"temp\" --no-verify";
-    gf = "git flow";
-    gc = "git commit";
-    gl = "git log --graph --oneline --all";
-    gll = "git log --oneline --decorate --all --graph --stat";
-    gld = "git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\"";
-    gls = "gl --show-signature";
-    gfa = "git fetch --all";
-    gs = "git status"; 
-    grc = "git rebase --continue";
-    rm = "rm -i";
-    vim = "nvim";
-  };
 
   programs.fish.shellInit = ''
     # TODO keybinding for thefuck
@@ -147,4 +153,6 @@
       format = "[$symbol$active]($style) ";
     };
   };
+
+
 }

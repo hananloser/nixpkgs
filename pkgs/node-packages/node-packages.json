@@ -1,5 +1,6 @@
 [
   "svg-term-cli",
   "mrm",
-  "@napi-rs/cli"
+  "@napi-rs/cli",
+  "sharp"
 ]
