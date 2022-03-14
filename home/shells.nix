@@ -76,7 +76,6 @@
     ns = "nix search";
 
     # Shell related
-    c = "z";
     cc = "zi";
     # Others
     p = "ping";
