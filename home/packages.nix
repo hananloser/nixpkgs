@@ -70,6 +70,7 @@
     thefuck # hints command
     ffmpeg
     imagemagick
+    btop
 
     ################################## 
     # Development

@@ -80,8 +80,7 @@
     cc = "zi";
     # Others
     p = "ping";
-    ls = "colorls -a";
-    lt = "colorls --tree 1";
+    ls = "exa -a";
     cat = "${bat}/bin/bat";
     du = "${du-dust}/bin/dust";
     pullhead = "git pull origin (git rev-parse --abbrev-ref HEAD)";
@@ -114,6 +113,7 @@
     set -U fish_color_error EC7279 --bold
     set -U fish_color_param 6CB6EB
     set fish_greeting
+    set -U LC_COLLATE en_UTF8
   '';
 
   # jump like `z` or `fasd` 
