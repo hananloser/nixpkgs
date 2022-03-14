@@ -90,6 +90,7 @@
     g = "git";
     gtemp = "git commit -m \"temp\" --no-verify";
     gf = "git flow";
+    gc = "git commit";
     gl = "git log --graph --oneline --all";
     gll = "git log --oneline --decorate --all --graph --stat";
     gld = "git log --oneline --all --pretty=format:\"%h%x09%an%x09%ad%x09%s\"";
