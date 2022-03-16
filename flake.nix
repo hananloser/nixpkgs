@@ -1,5 +1,5 @@
 {
-  description = "ri7's nix darwin system";
+  description = "hanan's nix darwin system";
 
   inputs = {
     # Package sets
