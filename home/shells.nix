@@ -58,6 +58,9 @@ in
   # zsh alias : register alias command in fish
   programs.zsh.enable = true;
   programs.zsh.shellAliases = alias;
+  programs.zsh.initExtra = ''
+    export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
+  '';
 
   # Fish Shell (Default shell)
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.fish.enable
@@ -109,6 +112,7 @@ in
 
 
   programs.fish.shellInit = ''
+    export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
     # Fish color
     set -U fish_color_command 6CB6EB --bold
     set -U fish_color_redirection DEB974
