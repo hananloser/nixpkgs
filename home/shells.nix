@@ -58,9 +58,25 @@ in
   # zsh alias : register alias command in fish
   programs.zsh.enable = true;
   programs.zsh.shellAliases = alias;
+  programs.zsh.enableSyntaxHighlighting = true;
+  programs.zsh.enableAutosuggestions = true;
   programs.zsh.initExtra = ''
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
   '';
+  # Please Checks this for complete docs
+  # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zsh.plugins
+  programs.zsh.plugins = [
+    {
+      # will source zsh-autosuggestions.plugin.zsh
+      name = "zsh-autosuggestions";
+      src = pkgs.fetchFromGitHub {
+        owner = "zsh-users";
+        repo = "zsh-autosuggestions";
+        rev = "v0.4.0";
+        sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
+      };
+    }
+  ];
 
   # Fish Shell (Default shell)
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.fish.enable
