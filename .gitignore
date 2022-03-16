@@ -1,4 +1,5 @@
 private.nix
 private.nix
-
+.tmp
 result
+logfile

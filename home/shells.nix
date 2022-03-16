@@ -16,7 +16,7 @@ let alias = {
   cc = "zi";
   # Others
   p = "ping";
-  ls = "exa -a";
+  ls = "exa";
   cat = "${pkgs.bat}/bin/bat";
   du = "${pkgs.du-dust}/bin/dust";
   pullhead = "git pull origin (git rev-parse --abbrev-ref HEAD)";
