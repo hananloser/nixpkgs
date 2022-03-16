@@ -109,8 +109,6 @@ in
 
 
   programs.fish.shellInit = ''
-    # TODO keybinding for thefuck
-
     # Fish color
     set -U fish_color_command 6CB6EB --bold
     set -U fish_color_redirection DEB974
