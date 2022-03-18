@@ -5,7 +5,7 @@
     # Package sets
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-21.11-darwin";
     nixpkgs-unstable.url = github:NixOS/nixpkgs/nixpkgs-unstable;
-
+    nixos-stable.url = github:NixOS/nixpkgs/nixos-21.11;
     # Environment/system management
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -75,7 +75,8 @@
     {
       # Current Macbook Pro M1 from Ruangguru.com
       darwinConfigurations = rec {
-        hanan=darwinSystem {
+
+        hanan = darwinSystem {
           system = "aarch64-darwin";
           modules = nixDarwinCommonModules ++ [
             {
@@ -89,6 +90,7 @@
             }
           ];
         };
+
       };
 
       # Overlays --------------------------------------------------------------- {{{

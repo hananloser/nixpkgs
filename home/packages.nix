@@ -60,10 +60,6 @@
     nodePackages.sharp
     nodePackages.mrm
 
-    ################################## 
-    # Manager
-    ################################## 
-    yadm
 
     ################################## 
     # Productivity

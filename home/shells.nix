@@ -61,6 +61,7 @@ in
   programs.zsh.enableSyntaxHighlighting = true;
   programs.zsh.enableAutosuggestions = true;
   programs.zsh.initExtra = ''
+    export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
   '';
   # Please Checks this for complete docs
@@ -128,6 +129,8 @@ in
 
 
   programs.fish.shellInit = ''
+
+    export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
     # Fish color
     set -U fish_color_command 6CB6EB --bold
