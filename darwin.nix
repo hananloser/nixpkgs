@@ -60,6 +60,7 @@ in
       end
     end
   '';
+
   environment.variables.SHELL = "${pkgs.fish}/bin/fish";
 
   # Install and setup ZSH to work with nix(-darwin) as well

@@ -56,12 +56,14 @@ in
   ];
 
   # zsh alias : register alias command in fish
+  # export PATH="/opt/homebrew/bin:$PATH"
+
   programs.zsh.enable = true;
   programs.zsh.shellAliases = alias;
   programs.zsh.enableSyntaxHighlighting = true;
   programs.zsh.enableAutosuggestions = true;
+  
   programs.zsh.initExtra = ''
-    export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
   '';
   # Please Checks this for complete docs
@@ -128,9 +130,9 @@ in
   };
 
 
+  #export PATH="/opt/homebrew/bin:$PATH"
   programs.fish.shellInit = ''
 
-    export PATH="/opt/homebrew/bin:$PATH"
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
     # Fish color
     set -U fish_color_command 6CB6EB --bold
