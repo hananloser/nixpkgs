@@ -5001,17 +5001,18 @@ in
     bypassCache = true;
     reconstructLock = true;
   };
-  esy = nodeEnv.buildNodePackage {
-    name = "esy";
-    packageName = "esy";
-    version = "0.6.12";
+  prettier = nodeEnv.buildNodePackage {
+    name = "prettier";
+    packageName = "prettier";
+    version = "2.6.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/esy/-/esy-0.6.12.tgz";
-      sha512 = "EJAbVSOA+KRAK86ZY3tSZUpbh9cYaUxIITycXFJp9yuH+XAuLrCSdTJsH+wvQniRrzAgUBJ6B2vYC2hFB09lTQ==";
+      url = "https://registry.npmjs.org/prettier/-/prettier-2.6.0.tgz";
+      sha512 = "m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==";
     };
     buildInputs = globalBuildInputs;
     meta = {
-      description = "Package builder for esy.";
+      description = "Prettier is an opinionated code formatter";
+      homepage = "https://prettier.io";
       license = "MIT";
     };
     production = true;

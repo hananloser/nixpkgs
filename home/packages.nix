@@ -48,6 +48,9 @@
     gnupg # required for pass git
     pass # password management
     ack
+    lua
+    luarocks
+    luaformatter
 
     ################################## 
     # Platform specific

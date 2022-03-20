@@ -134,6 +134,7 @@ in
   programs.fish.shellInit = ''
 
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
+    export PATH="/Users/hanan/go/bin:$PATH"
     # Fish color
     set -U fish_color_command 6CB6EB --bold
     set -U fish_color_redirection DEB974
