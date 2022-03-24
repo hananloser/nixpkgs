@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-
 {
   # Packages with configuration --------------------------------------------------------------- {{{
 
@@ -25,107 +24,110 @@
   programs.htop.enable = true;
   programs.htop.settings.show_program_path = true;
 
+
   # home.file.".gnupg/gpg-agent.conf" = {
   #   target = ".gnupg/gpg-agent.conf";
   #   text = ''
   #   pinentry-program ${pkgs.pinentry_mac}/pinentry-mac.app/Contents/MacOS/pinentry-mac
   # '';
   # };
-  home.packages = with pkgs; [
-    
-    ################################## 
-    # PHP development 
-    ################################## 
-    php
+  home.packages = with pkgs;
+    [
+      ################################## 
+      # PHP development 
+      ################################## 
+      php
+      php80Extensions.xdebug
+      ################################## 
+      # common
+      ################################## 
+      coreutils
+      curl
+      wget
+      tree
+      gnupg # required for pass git
+      pass # password management
+      ack
+      lua
+      luarocks
+      luaformatter
 
-    ################################## 
-    # common
-    ################################## 
-    coreutils
-    curl
-    wget
-    tree
-    gnupg # required for pass git
-    pass # password management
-    ack
-    lua
-    luarocks
-    luaformatter
-
-    ################################## 
-    # Platform specific
-    ################################## 
-    asciinema # screen record
-    glab # gitlab cli
-    gh # github cli
-    nodePackages.svg-term-cli
-    nodePackages."@napi-rs/cli"
-    nodePackages.sharp
-    nodePackages.mrm
+      ################################## 
+      # Platform specific
+      ################################## 
+      asciinema # screen record
+      glab # gitlab cli
+      gh # github cli
+      nodePackages.svg-term-cli
+      nodePackages."@napi-rs/cli"
+      nodePackages.sharp
+      nodePackages.mrm
 
 
-    ################################## 
-    # Productivity
-    ################################## 
-    fzf # finder
-    neofetch # fancy fetch information
-    du-dust # fancy du
-    fd # fancy find
-    jq # JSON in shell
-    ripgrep # another yet of grep
-    thefuck # hints command
-    ffmpeg
-    imagemagick
-    btop
+      ################################## 
+      # Productivity
+      ################################## 
+      fzf # finder
+      neofetch # fancy fetch information
+      du-dust # fancy du
+      fd # fancy find
+      jq # JSON in shell
+      ripgrep # another yet of grep
+      thefuck # hints command
+      ffmpeg
+      imagemagick
+      btop
+      tmate
 
-    ################################## 
-    # Development
-    ################################## 
-    git
-    neovim
-    yarn
-    tokei
-    rustPackages.rustc
-    rustPackages.rustfmt
-    rustPackages.cargo
-    google-cloud-sdk
-    nodejs-16_x
-    gitlab-runner
-    comby
-    python3
-    pkg-config
-    exa
-    vips
-    postgresql
+      ################################## 
+      # Development
+      ################################## 
+      git
+      neovim
+      yarn
+      tokei
+      rustPackages.rustc
+      rustPackages.rustfmt
+      rustPackages.cargo
+      google-cloud-sdk
+      nodejs-16_x
+      gitlab-runner
+      comby
+      python3
+      pkg-config
+      exa
+      vips
+      postgresql
 
-    ################################## 
-    # Shell Integrations
-    ################################## 
-    tmux # terminal multi-plexer (multiply terminal)
-    starship # theme for shell (bash,fish,zsh)
+      ################################## 
+      # Shell Integrations
+      ################################## 
+      tmux # terminal multi-plexer (multiply terminal)
+      starship # theme for shell (bash,fish,zsh)
 
-    ################################## 
-    # Misc
-    ################################## 
-    spotifyd # spotify daemon for TUI
-    spotify-tui # spotify terminal UI
+      ################################## 
+      # Misc
+      ################################## 
+      spotifyd # spotify daemon for TUI
+      spotify-tui # spotify terminal UI
 
-    ################################## 
-    # Communication
-    ################################## 
-    discord
-    slack
-    ################################## 
-    # Useful Nix related tools
-    ################################## 
-    cachix
-    comma # run without install
-    nodePackages.node2nix
-    nix-prefetch-git
-  ] ++ lib.optionals stdenv.isDarwin [
-    cocoapods
-    m-cli # useful macOS CLI commands
-    pinentry_mac # gpg-agent for mac
-    xcode-install
-  ];
+      ################################## 
+      # Communication
+      ################################## 
+      discord
+      slack
+      ################################## 
+      # Useful Nix related tools
+      ################################## 
+      cachix
+      comma # run without install
+      nodePackages.node2nix
+      nix-prefetch-git
+    ] ++ lib.optionals stdenv.isDarwin [
+      cocoapods
+      m-cli # useful macOS CLI commands
+      pinentry_mac # gpg-agent for mac
+      xcode-install
+    ];
+
 }

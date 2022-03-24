@@ -64,7 +64,6 @@ in
   programs.zsh.enableAutosuggestions = true;
   
   programs.zsh.initExtra = ''
-    export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
   '';
   # Please Checks this for complete docs
   # https://rycee.gitlab.io/home-manager/options.html#opt-programs.zsh.plugins
@@ -132,7 +131,7 @@ in
 
   #export PATH="/opt/homebrew/bin:$PATH"
   programs.fish.shellInit = ''
-
+    tmux new -A -s HaNaN 
     export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
     export PATH="/Users/hanan/go/bin:$PATH"
     # Fish color
