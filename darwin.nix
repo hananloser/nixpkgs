@@ -3,7 +3,6 @@
 # Here: https://gist.github.com/jmatsushita/5c50ef14b4b96cb24ae5268dab613050
 
 { pkgs, config, lib, ... }:
-
 let
   inherit (lib) mkIf;
   mkIfCaskPresent = cask: mkIf (lib.any (x: x == cask) config.homebrew.casks);
@@ -102,38 +101,51 @@ in
   security.pam.enableSudoTouchIdAuth = false;
 
   #Homebrew
-  environment.shellInit = mkIf brewEnabled ''
-    eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
-  '';
 
-  homebrew.enable = true;
-  homebrew.autoUpdate = true;
-  homebrew.cleanup = "zap";
-  homebrew.global.brewfile = true;
-  homebrew.global.noLock = true;
-
-  homebrew.taps = [
-    "homebrew/cask"
-    "homebrew/cask-drivers"
-    "homebrew/cask-fonts"
-    "homebrew/cask-versions"
-    "homebrew/core"
-    "homebrew/services"
-    "nrlquaker/createzap"
-  ];
-
-  # Prefer installing application from the Mac App Store
+  # https://docs.brew.sh/Shell-Completion#configuring-completions-in-fish
+  # For some reason if the Fish completions are added at the end of `fish_complete_path` they don't
+  # seem to work, but they do work if added at the start.
+  #  programs.fish.interactiveShellInit = mkIf brewEnabled ''
+  #    if test -d (brew --prefix)"/share/fish/completions"
+  #      set -p fish_complete_path (brew --prefix)/share/fish/completions
+  #    end
+  #    if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+  #      set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+  #    end
+  #  '';
   #
-  # Commented apps suffer continual update issue:
-  # https://github.com/malob/nixpkgs/issues/9
-  homebrew.masApps = { };
-
-  # If an app isn't available in the Mac App Store, or the version in the App Store has
-  # limitiations, e.g., Transmit, install the Homebrew Cask.
-  homebrew.casks = [ ];
- 
-  
-
+  #  environment.shellInit = mkIf brewEnabled ''
+  #    eval "$(${config.homebrew.brewPrefix}/brew shellenv)"
+  #  '';
+  #
+  #  homebrew.enable = true;
+  #  homebrew.autoUpdate = false;
+  #  homebrew.cleanup = "zap";
+  #  homebrew.global.brewfile = true;
+  #  homebrew.global.noLock = true;
+  #
+  #  homebrew.taps = [
+  #    "homebrew/cask"
+  #    "homebrew/cask-drivers"
+  #    "homebrew/cask-fonts"
+  #    "homebrew/cask-versions"
+  #    "homebrew/core"
+  #    "homebrew/services"
+  #    "nrlquaker/createzap"
+  #  ];
+  #
+  #  # Prefer installing application from the Mac App Store
+  #  #
+  #  # Commented apps suffer continual update issue:
+  #  # https://github.com/malob/nixpkgs/issues/9
+  #  #homebrew.masApps = { };
+  #
+  #  # If an app isn't available in the Mac App Store, or the version in the App Store has
+  #  # limitiations, e.g., Transmit, install the Homebrew Cask.
+  #  #homebrew.casks = [ ];
+  #
+  #  homebrew.brews = [
+  #    "php@8.0"
+  #  ];
 }
-
 

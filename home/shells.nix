@@ -37,6 +37,7 @@ let alias = {
   grc = "git rebase --continue";
   rm = "rm -i";
   vim = "nvim";
+  tm = "tmux new -A -s HaNaN";
 };
 in
 {
@@ -62,7 +63,7 @@ in
   programs.zsh.shellAliases = alias;
   programs.zsh.enableSyntaxHighlighting = true;
   programs.zsh.enableAutosuggestions = true;
-  
+
   programs.zsh.initExtra = ''
   '';
   # Please Checks this for complete docs
@@ -130,10 +131,20 @@ in
 
 
   #export PATH="/opt/homebrew/bin:$PATH"
+  #eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  #fish_add_path /opt/homebrew/opt/php@7.4/bin
+  #fish_add_path /opt/homebrew/opt/php@7.4/sbin
+
+  #fish_add_path /opt/homebrew/opt/php@8.1/bin
+  #fish_add_path /opt/homebrew/opt/php@8.1/sbin
+
+  #fish_add_path /opt/homebrew/opt/php@8.0/bin
+  #fish_add_path /opt/homebrew/opt/php@8.0/sbin
   programs.fish.shellInit = ''
-    tmux new -A -s HaNaN 
-    export PATH="/Users/hanan/.config/composer/vendor/bin:$PATH"
     export PATH="/Users/hanan/go/bin:$PATH"
+
+    eval (/opt/homebrew/bin/brew shellenv)
     # Fish color
     set -U fish_color_command 6CB6EB --bold
     set -U fish_color_redirection DEB974
@@ -143,6 +154,9 @@ in
     set -U fish_color_param 6CB6EB
     set fish_greeting
     set -U LC_COLLATE en_UTF8
+
+    fish_add_path /Users/hanan/.config/composer/vendor/bin
+
   '';
 
   # jump like `z` or `fasd` 
