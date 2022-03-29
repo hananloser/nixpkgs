@@ -56,10 +56,6 @@
       asciinema # screen record
       glab # gitlab cli
       gh # github cli
-      nodePackages.svg-term-cli
-      nodePackages."@napi-rs/cli"
-      nodePackages.sharp
-      nodePackages.mrm
 
 
       ################################## 
@@ -103,17 +99,6 @@
       tmux # terminal multi-plexer (multiply terminal)
       starship # theme for shell (bash,fish,zsh)
 
-      ################################## 
-      # Misc
-      ################################## 
-      spotifyd # spotify daemon for TUI
-      spotify-tui # spotify terminal UI
-
-      ################################## 
-      # Communication
-      ################################## 
-      discord
-      slack
       ################################## 
       # Useful Nix related tools
       ################################## 

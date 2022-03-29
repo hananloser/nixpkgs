@@ -143,7 +143,6 @@ in
   #fish_add_path /opt/homebrew/opt/php@8.0/sbin
   programs.fish.shellInit = ''
     export PATH="/Users/hanan/go/bin:$PATH"
-
     eval (/opt/homebrew/bin/brew shellenv)
     # Fish color
     set -U fish_color_command 6CB6EB --bold
